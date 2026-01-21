@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>树叶倒计时</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="icons/leaf.svg" alt="Leaf" class="icon">
+      <h1>树叶倒计时</h1>
+    </div>
+    
+    <div id="setup-view">
+      <div class="input-group">
+        <input type="number" id="minutes" min="0" placeholder="0" value="0">
+        <span class="label">分</span>
+        <input type="number" id="seconds" min="0" max="59" placeholder="0" value="0">
+        <span class="label">秒</span>
+      </div>
+      <button id="start-btn" class="btn primary">开始倒计时</button>
+    </div>
+
+    <div id="timer-view" class="hidden">
+      <div class="timer-display" id="time-display">00:00</div>
+      <button id="reset-btn" class="btn secondary">取消</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

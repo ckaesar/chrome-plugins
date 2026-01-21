@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "树叶倒计时",
+  "version": "1.0",
+  "description": "一个简单的倒计时插件，时间到后会有绿色树叶提醒。",
+  "permissions": [
+    "notifications",
+    "alarms",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/leaf.svg",
+      "48": "icons/leaf.svg",
+      "128": "icons/leaf.svg"
+    }
+  },
+  "icons": {
+    "16": "icons/leaf.png",
+    "48": "icons/leaf.png",
+    "128": "icons/leaf.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/leaf.png"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
