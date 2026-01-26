@@ -31,9 +31,24 @@ chrome.alarms.onAlarm.addListener((alarm) => {
       }
     });
 
-    // 清理 storage
-    chrome.storage.local.remove(['targetTime'], () => {
-      console.log('Storage cleared');
+    // 检查是否需要循环
+    chrome.storage.local.get(['isLoop', 'duration'], (result) => {
+      if (result.isLoop && result.duration) {
+        // 循环模式：设置下一轮倒计时
+        const nextTargetTime = Date.now() + result.duration * 1000;
+        
+        chrome.storage.local.set({ targetTime: nextTargetTime }, () => {
+          chrome.alarms.create('countdownTimer', {
+            when: nextTargetTime
+          });
+          console.log('Looping: next alarm set for', new Date(nextTargetTime).toLocaleString());
+        });
+      } else {
+        // 非循环模式：清理 storage
+        chrome.storage.local.remove(['targetTime', 'duration', 'isLoop'], () => {
+          console.log('Storage cleared (not looping)');
+        });
+      }
     });
   }
 });

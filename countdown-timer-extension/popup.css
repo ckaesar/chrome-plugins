@@ -35,7 +35,20 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
+}
+
+.checkbox-group {
   margin-bottom: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-group input {
+  width: auto;
+  margin-right: 5px;
 }
 
 input {
